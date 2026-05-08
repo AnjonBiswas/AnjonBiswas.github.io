@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio website for Anjon Biswas, showcasing projects, certificates, skills, education, achievements, experience, and contact information.">
+  <title>Anjon Biswas | Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true">
+    <span class="scroll-progress-bar"></span>
+  </div>
+  <header class="site-header" id="top">
+        <nav class="navbar" aria-label="Primary navigation">
+      <a href="#home" class="brand" aria-label="Anjon Biswas home">
+        <span class="brand-mark">
+          <img src="assets/IMG_20250122_001423_316%20copy.jpg" alt="Anjon Biswas logo portrait" class="brand-mark-image">
+        </span>
+        <span>Anjon Biswas</span>
+      </a>
+
+      <div class="nav-panel">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a></li>
+          <li><a href="#about" class="nav-link"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About</span></a></li>
+          <li><a href="#skills" class="nav-link"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i><span>Skills</span></a></li>
+          <li><a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Projects</span></a></li>
+          <li><a href="#certificates" class="nav-link"><i class="fa-solid fa-certificate" aria-hidden="true"></i><span>Certificates</span></a></li>
+          <li><a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span>Education</span></a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Contact</span></a></li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode">
+          <span class="theme-icon" aria-hidden="true">?</span>
+        </button>
+        <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="shape shape-one"></span>
+        <span class="shape shape-two"></span>
+        <span class="shape shape-three"></span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-copy reveal">
+                  <h1>Hi, I’m <span>Anjon Biswas</span></h1>
+          <p class="hero-role">Developer | UI/UX Passionate | HCI Researcher | Tech Enthusiast</p>
+          <p class="typing-line">I am a <span id="typingText"></span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="hero-intro">
+CSE undergraduate at United International University, building practical skills in web, mobile, and IoT through hands-on projects. I focus on turning ideas into clean, functional digital products with thoughtful design and strong logic, driven by a continuous learning mindset.          </p>
+
+          <div class="hero-actions" aria-label="Portfolio actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#certificates" class="btn btn-secondary">View Certificates</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            <button id="viewCvBtn" class="btn btn-ghost" type="button" aria-label="View CV">View CV</button>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="profile-orbit" aria-hidden="true"></div>
+          <div class="profile-card">
+            <div class="profile-photo">
+              <img src="assets/IMG_20250122_001423_316%20copy.jpg" alt="Portrait photo of Anjon Biswas">
+            </div>
+            <div class="profile-meta">
+              <strong>Anjon Biswas</strong>
+              <span>CSE Undergraduate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">About Me</p>
+        <h2>Creative builder with a practical mindset.</h2>
+        <p>
+          As a CSE undergraduate at United International University, I work across <b>web, mobile, IoT, HCI, and AI literacy,</b> applying what I learn through hands-on projects. I aim to design and build thoughtful, user-centered solutions that pair strong engineering with real-world impact and a mindset of continuous growth.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card reveal">
+          <strong data-counter="6">0</strong>
+          <span>Projects</span>
+        </article>
+        <article class="stat-card reveal">
+          <strong data-counter="7">0</strong>
+          <span>Certificates</span>
+        </article>
+        <article class="stat-card reveal">
+          <strong>3</strong>
+          <span>Web, Mobile & IoT Focus</span>
+        </article>
+        <article class="stat-card reveal">
+          <strong>∞</strong>
+          <span>Continuous Learner</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="skills">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Skills</p>
+        <h2>Technical range with strong learning momentum.</h2>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <h3>Programming</h3>
+          <div class="badge-list">
+            <span class="skill-badge"><i class="devicon-c-plain" aria-hidden="true"></i><span>C</span></span>
+            <span class="skill-badge"><i class="devicon-javascript-plain" aria-hidden="true"></i><span>JavaScript</span></span>
+            <span class="skill-badge"><i class="devicon-php-plain" aria-hidden="true"></i><span>PHP</span></span>
+            <span class="skill-badge"><i class="devicon-python-plain" aria-hidden="true"></i><span>Python</span></span>
+            <span class="skill-badge"><i class="devicon-java-plain" aria-hidden="true"></i><span>JAVA</span></span>
+          </div>
+        </article>
+        <article class="skill-card reveal">
+          <h3>Web & Mobile App Development</h3>
+          <div class="badge-list">
+            <span class="skill-badge"><i class="devicon-html5-plain" aria-hidden="true"></i><span>HTML</span></span>
+            <span class="skill-badge"><i class="devicon-css3-plain" aria-hidden="true"></i><span>CSS</span></span>
+            <span class="skill-badge"><i class="devicon-javascript-plain" aria-hidden="true"></i><span>JavaScript</span></span>
+            <span class="skill-badge"><i class="devicon-php-plain" aria-hidden="true"></i><span>PHP</span></span>
+                        <span class="skill-badge"><i class="devicon-bootstrap-plain" aria-hidden="true"></i><span>Bootstrap</span></span>
+                                   <span class="skill-badge"><i class="devicon-flutter-plain" aria-hidden="true"></i><span>Flutter</span></span>
+ <span class="skill-badge"><i class="devicon-react-original" aria-hidden="true"></i><span>React Native</span></span>
+
+          </div>
+        </article>
+        
+        <article class="skill-card reveal">
+          <h3>Database & Backend</h3>
+          <div class="badge-list">
+            <span class="skill-badge"><i class="devicon-laravel-plain" aria-hidden="true"></i><span>Laravel</span></span>
+            <span class="skill-badge"><i class="devicon-firebase-plain" aria-hidden="true"></i><span>Firebase</span></span>
+                        <span class="skill-badge"><i class="devicon-azuresqldatabase-plain" aria-hidden="true"></i><span>SQL</span></span>
+<span class="skill-badge"><i class="devicon-spring-plain" aria-hidden="true"></i><span>Spring Boot</span></span>
+
+            <span class="skill-badge"><i class="devicon-sqlite-plain" aria-hidden="true"></i><span>SQLite</span></span>
+          </div>
+        </article>
+        <article class="skill-card reveal">
+          <h3>Core CS Fundamentals</h3>
+          <div class="badge-list">
+            <span class="skill-badge"><i class="fa-solid fa-code-branch" aria-hidden="true"></i><span>Data Structure and Algorithm</span></span>
+            <span class="skill-badge"><i class="fa-solid fa-network-wired" aria-hidden="true"></i><span>Computer Networks</span></span>
+            <span class="skill-badge"><i class="fa-solid fa-microchip" aria-hidden="true"></i><span>Operating Systems</span></span>
+            <span class="skill-badge"><i class="fa-solid fa-memory" aria-hidden="true"></i><span>Microprocessors</span></span>
+          </div>
+        </article>
+        <article class="skill-card reveal">
+          <h3>Design & Productivity</h3>
+          <div class="badge-list">
+            <span class="skill-badge"><i class="devicon-git-plain" aria-hidden="true"></i><span>Git</span></span>
+            <span class="skill-badge"><i class="devicon-github-original" aria-hidden="true"></i><span>GitHub</span></span>
+            <span class="skill-badge"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i><span>PowerPoint</span></span><span class="skill-badge"><i class="devicon-photoshop-plain" aria-hidden="true"></i><span>Adobe Photoshop</span></span>
+            <span class="skill-badge"><i class="devicon-figma-plain" aria-hidden="true"></i><span>Figma</span></span>
+            
+            <span class="skill-badge"><i class="fa-solid fa-palette" aria-hidden="true"></i><span>Canva</span></span>
+          </div>
+        </article>
+        <article class="skill-card reveal">
+          <h3>Soft Skills</h3>
+          <div class="badge-list">
+            <span class="skill-badge"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Communication</span></span>
+            <span class="skill-badge"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i><span>Presentation</span></span>
+            <span class="skill-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Problem Solving</span></span>
+            <span class="skill-badge"><i class="fa-solid fa-people-group" aria-hidden="true"></i><span>Teamwork</span></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Projects</p>
+        <h2>A curated showcase of impact-focused work across web, mobile, and IoT systems.</h2>
+      </div>
+
+      <div class="filter-row reveal" aria-label="Project filters">
+        <button class="filter-btn active" type="button" data-project-filter="all">All</button>
+        <button class="filter-btn" type="button" data-project-filter="web">Web</button>
+        <button class="filter-btn" type="button" data-project-filter="mobile">Mobile</button>
+        <button class="filter-btn" type="button" data-project-filter="iot">IoT</button>
+        <button class="filter-btn" type="button" data-project-filter="c-programming">C Programming</button>
+        <button class="filter-btn" type="button" data-project-filter="running">Running</button>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal" data-category="c-programming" data-status="Completed">
+          <div class="project-image">
+            <img src="assets/Smart Café Management System.png" alt="Screenshot of Smart Café Management System">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span>2023</span>
+              <span class="status completed">Completed</span>
+            </div>
+            <h3>Smart Café Management System</h3>
+            <p>A console-based café management system developed in C to manage menu handling, order processing, billing, and customer service flow.</p>
+            <div class="badge-list"><span>C</span></div>
+            <div class="card-actions">
+              <a href="#" aria-label="GitHub link placeholder for Smart Café Management System">GitHub [Add Later]</a>
+              <button class="text-btn project-details" type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="project-card reveal autonomous-fire-card" data-category="iot" data-status="Completed">
+          <div class="project-image">
+            <img src="assets/Autonomous Fire Fighting Car.png" alt="Prototype of Autonomous Fire Fighting Car">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span>2024</span>
+              <span class="status completed">Completed</span>
+            </div>
+            <h3>Autonomous Fire Fighting Car</h3>
+            <p>An autonomous fire-fighting robotic car that detects fire with flame sensors and responds by spraying water in real time.</p>
+            <div class="badge-list"><span>Arduino</span><span>ESP32-CAM</span><span>Microprocessors</span></div>
+            <div class="card-actions">
+              <a href="#" aria-label="GitHub link placeholder for Autonomous Fire Fighting Car">GitHub [Add Later]</a>
+              <button class="text-btn project-details" type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" id="project-safetynet-mobile-app" data-category="mobile" data-status="Completed">
+          <div class="project-image">
+            <img src="assets/SafetyNet-mobile app.png" alt="Screenshot of SafetyNet Mobile App">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span>2025</span>
+              <span class="status completed">Completed</span>
+            </div>
+            <h3>SafetyNet - Mobile App</h3>
+            <p>A full-stack mobile safety and monitoring application designed to improve personal security through mobile interaction and backend API support.</p>
+            <div class="badge-list"><span>JavaScript</span><span>React Native</span><span>Laravel</span><span>SQL</span></div>
+            <div class="card-actions">
+              <a href="https://github.com/AnjonBiswas/SafetyNet-Mobile-App" target="_blank" rel="noreferrer">GitHub</a>
+              <button class="text-btn project-details" type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="web" data-status="Completed">
+          <div class="project-image">
+            <img src="assets/HealthMatrix.png" alt="Screenshot of HealthMatrix system">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span>2026</span>
+              <span class="status completed">Completed</span>
+            </div>
+            <h3>HealthMatrix - A Smart Diet Management System</h3>
+            <p>A web-based diet and nutrition management system for food intake, meal plans, water tracking, and dietitian connection.</p>
+            <div class="badge-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>SQL</span></div>
+            <div class="card-actions">
+              <a href="https://github.com/AnjonBiswas/HealthMatrix---A-Smart-Diet-Management-System" target="_blank" rel="noreferrer">GitHub</a>
+              <button class="text-btn project-details" type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="web" data-status="Completed">
+          <div class="project-image">
+            <img src="assets/Writing Archive Site.png" alt="Screenshot of Writing Archive Site">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span>2026</span>
+              <span class="status completed">Completed</span>
+            </div>
+            <h3>Writing Archive Site</h3>
+            <p>A personal writing archive website created to preserve, organize, and publicly showcase meaningful literary work.</p>
+            <div class="badge-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <div class="card-actions">
+              <a href="https://github.com/AnjonBiswas/writing_archive_site" target="_blank" rel="noreferrer">GitHub</a>
+              <button class="text-btn project-details" type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="iot mobile running" data-status="Running / In Progress">
+          <div class="project-image">
+            <img src="assets/SafetyNet-Wearable.png" alt="Screenshot of SafetyNet-Wearable system">
+          </div>
+          <div class="project-body">
+            <div class="project-topline">
+              <span>2026</span>
+              <span class="status running">Running</span>
+            </div>
+            <h3>SafetyNet-Wearable - IoT Based Woman Safety System</h3>
+            <p>An IoT-based wearable safety system focused on women’s security with hardware, mobile support, Firebase, and emergency alerts.</p>
+            <div class="badge-list"><span>Flutter</span><span>Firebase</span><span>Microprocessors</span></div>
+            <div class="card-actions">
+              <a href="#" aria-label="GitHub link placeholder for SafetyNet Wearable">GitHub [Add Later]</a>
+              <button class="text-btn project-details" type="button">View Details</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="certificates">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Certificates</p>
+        <h2>Learning records and professional development.</h2>
+      </div>
+
+      <div class="filter-row reveal" aria-label="Certificate filters">
+        <button class="filter-btn active" type="button" data-certificate-filter="all">All</button>
+        <button class="filter-btn" type="button" data-certificate-filter="GP Academy">GP Academy</button>
+        <button class="filter-btn" type="button" data-certificate-filter="Udemy">Udemy</button>
+      </div>
+
+      <div class="certificate-grid">
+        <article class="certificate-card reveal" data-issuer="GP Academy">
+          <div class="certificate-image">
+            <img src="assets/certificate-sharpen-your-interview-skills.jpg" alt="Sharpen Your Interview Skills certificate">
+          </div>
+          <h3>Sharpen Your Interview Skills</h3>
+          <p>Issuer: GP Academy <span class="certificate-instructor">Instructor: Asif Raihan Fahim</span></p>
+          <p>Date: Mar 2026</p>
+        </article>
+        <article class="certificate-card reveal" data-issuer="GP Academy">
+          <div class="certificate-image">
+            <img src="assets/certificate-linkedin-101.jpg" alt="LinkedIn 101 certificate">
+          </div>
+          <h3>LinkedIn 101</h3>
+          <p>Issuer: GP Academy <span class="certificate-instructor">Instructor: Mahir Hossain</span></p>
+          <p>Date: Mar 2026</p>
+        </article>
+        <article class="certificate-card reveal" data-issuer="GP Academy">
+          <div class="certificate-image">
+            <img src="assets/certificate-corporate-presentation-skills.jpg" alt="Corporate Presentation Skills certificate">
+          </div>
+          <h3>Corporate Presentation Skills</h3>
+          <p>Issuer: GP Academy <span class="certificate-instructor">Instructor: Lubab Bin Abdullah</span></p>
+          <p>Date: Mar 2026</p>
+        </article>
+        <article class="certificate-card reveal" data-issuer="GP Academy">
+          <div class="certificate-image">
+            <img src="assets/certificate-art-of-communication.jpg" alt="Art of Communication certificate">
+          </div>
+          <h3>Art of Communication</h3>
+          <p>Issuer: GP Academy <span class="certificate-instructor">Instructor: Shoumen Barua</span></p>
+          <p>Date: Apr 2026</p>
+        </article>
+        <article class="certificate-card reveal" data-issuer="GP Academy">
+          <div class="certificate-image">
+            <img src="assets/certificate-smart-cv.jpg" alt="Smart CV certificate">
+          </div>
+          <h3>Smart CV</h3>
+          <p>Issuer: GP Academy <span class="certificate-instructor">Instructor: Arian Mehjabin</span></p>
+          <p>Date: Apr 2026</p>
+        </article>
+        <article class="certificate-card reveal" data-issuer="Udemy">
+          <div class="certificate-image">
+            <img src="assets/Master%20HTML%20and%20CSS%20by%20building%20real%20world%20projects.jpg" alt="Master HTML and CSS by Building Real World Projects certificate">
+          </div>
+          <h3>Master HTML and CSS by Building Real World Projects</h3>
+          <p>Issuer: Udemy <span class="certificate-instructor">Instructor: Anisul Islam</span></p>
+          <p>Date: Mar 2025</p>
+        </article>
+        <article class="certificate-card reveal" data-issuer="Udemy">
+          <div class="certificate-image">
+            <img src="assets/Deep%20Dive%20into%20OpenAI%20Models.jfif" alt="Deep Dive into OpenAI Models certificate">
+          </div>
+          <h3>Deep Dive into OpenAI Models: Master o3, o4-mini & Beyond</h3>
+          <p>Issuer: Udemy <span class="certificate-instructor">Instructor: Anton Voroniuk</span></p>
+          <p>Date: Sep 2025</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Education</p>
+        <h2>Academic background.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card">
+            <span class="timeline-date">Currently Studying</span>
+            <h3>Degree / Program: Computer Science and Engineering</h3>
+            <p>Institution: <a href="https://www.uiu.ac.bd" target="_blank" rel="noreferrer">United International University, Dhaka</a></p>
+            <p>Relevant coursework: Software, HCI</p>
+          </div>
+        </article>
+        
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card">
+            <span class="timeline-date">2021</span>
+            <h3>Degree / Program: Higher Secondary School Certificate (HSC)</h3>
+            <p>Institution: <a href="https://jsbgmsc.jessoreboard.gov.bd/" target="_blank" rel="noreferrer">Jashore Shikkha Board Govt. Model School and College</a></p>
+            <p>Relevant coursework: Science</p>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card">
+            <span class="timeline-date">2019</span>
+            <h3>Degree / Program: Secondary School Certificate (SSC)</h3>
+            <p>Institution: <a href="https://jsbgmsc.jessoreboard.gov.bd/" target="_blank" rel="noreferrer">Jashore Shikkha Board Govt. Model School and College</a></p>
+            <p>Relevant coursework: Science</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="section" id="achievements">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Achievements</p>
+        <h2>Milestones worth highlighting.</h2>
+      </div>
+
+      <div class="achievement-grid">
+        <article class="achievement-card reveal">
+          <span>Mar 4, 2026</span>
+          <h3>1st Runner Up</h3>
+          <p>UIU CSE Project Show</p>
+          <p><a href="#project-safetynet-mobile-app" class="achievement-link">SafetyNet App</a> was recognized as a top project in AOOP for practical impact, system depth, and presentation quality.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="gallery">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Gallery / Works</p>
+        <h2>Visual archive for projects, certificates, events, and UI designs.</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="assets/20260304_143246.jpg" alt="Anjon Biswas at a project showcase event">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="assets/IMG_9018%20copy.JPG" alt="Anjon Biswas Presenting Award rest">
+        </div>
+       
+        <div class="gallery-item reveal">
+          <img src="assets/SafetyNet_Poster.jpg" alt="SafetyNet project poster design">
+        </div>
+        
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s build something meaningful.</h2>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <a href="mailto:abanjon123@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>abanjon123@gmail.com</span></a>
+          <a href="https://github.com/AnjonBiswas" target="_blank" rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span>github.com/AnjonBiswas</span></a>
+          <a href="https://www.linkedin.com/in/anjonbiswas223/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>linkedin.com/in/anjonbiswas223</span></a>
+          <a href="https://www.facebook.com/anjonverse" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span>facebook.com/anjonverse</span></a>
+        </div>
+
+        <form class="contact-form reveal" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-row">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project, internship, collaboration..." required>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Copyright © <span id="year"></span> Anjon Biswas. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://github.com/AnjonBiswas" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/anjonbiswas223/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/anjonverse" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+  <div class="custom-cursor" aria-hidden="true">
+    <span class="cursor-pointer"></span>
+  </div>
+
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close modal" data-close-modal>×</button>
+      <div class="modal-media placeholder-media" role="img" aria-label="[Preview Image]"><span>[Project Screenshot]</span></div>
+      <p class="eyebrow" id="modalMeta"></p>
+      <h2 id="modalTitle"></h2>
+      <div id="modalContent"></div>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="screenshotModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="screenshotTitle">
+    <div class="modal-backdrop" data-close-screenshot-modal></div>
+    <div class="modal-panel screenshot-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close screenshot modal" data-close-screenshot-modal>×</button>
+      <p class="eyebrow" id="screenshotEyebrow">Project Screenshot</p>
+      <h2 id="screenshotTitle">Screenshot</h2>
+      <div class="modal-media screenshot-media">
+        <button id="screenshotPrevBtn" class="screenshot-arrow screenshot-arrow-prev" type="button" aria-label="View previous image">&#10094;</button>
+        <img id="screenshotImage" src="" alt="Project screenshot preview">
+        <button id="screenshotNextBtn" class="screenshot-arrow screenshot-arrow-next" type="button" aria-label="View next image">&#10095;</button>
+      </div>
+      <p id="screenshotCounter" class="screenshot-counter" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="modal" id="cvModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cvTitle">
+    <div class="modal-backdrop" data-close-cv-modal></div>
+    <div class="modal-panel cv-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close CV modal" data-close-cv-modal>Ã—</button>
+      <p class="eyebrow">Curriculum Vitae of Anjon Biswas</p>
+      <h2 id="cvTitle" class="sr-only">Anjon Biswas - CV</h2>
+      <div
+        class="cv-view"
+        data-pdf-src="assets/Anjon%20-%20Graduate%20Professional%20Resume.pdf"
+        data-pdf-title="Anjon Graduate Professional Resume">
+        <div class="cv-toolbar" aria-label="CV viewer controls">
+          <a
+            id="cvOpenLink"
+            class="btn btn-secondary"
+            href="assets/Anjon%20-%20Graduate%20Professional%20Resume.pdf"
+            target="_blank"
+            rel="noreferrer">Open PDF</a>
+          <button
+            id="cvDownloadLink"
+            class="btn btn-secondary"
+            type="button">Download CV</button>
+        </div>
+        <div class="cv-canvas-wrap" id="cvEmbedWrap">
+          <iframe id="cvFrame" title="Anjon Biswas CV" loading="lazy"></iframe>
+          <div id="cvMobilePages" class="cv-mobile-pages" aria-label="CV mobile preview"></div>
+        </div>
+        <p id="cvStatus" class="cv-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <iframe id="downloadFrame" name="downloadFrame" style="display:none;" title="hidden download frame"></iframe>
+  <script src="script.js"></script>
+</body>
+</html>
