@@ -255,7 +255,7 @@ const projects = [
       "Coin Vibration Motor",
       "etc."
     ],
-    image: "assets/SafetyNet-Wearable.png",
+    image: "assets/SafetyNet-Wearable.jpg",
     description:
       "An IoT-based wearable safety system designed to provide real-time emergency assistance through wearable hardware and mobile connectivity.",
     overview:
