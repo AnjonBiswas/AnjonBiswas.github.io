@@ -29,7 +29,7 @@ const projects = [
       "Problem-solving and logic building",
       "File handling and structured programming"
     ],
-    github: "#",
+    github: "https://github.com/AnjonBiswas/Smart-Cafe-Management-System",
     demo: "#"
   },
   {
@@ -826,7 +826,10 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.16 }
+  {
+    threshold: 0.1,
+    rootMargin: "0px 0px -6% 0px"
+  }
 );
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
