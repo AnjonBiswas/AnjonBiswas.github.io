@@ -513,29 +513,6 @@ initGlobalSpotlight();
 initHeroParallax();
 initBackgroundParallax();
 
-function createClickWave(x, y) {
-  const wave = document.createElement("span");
-  wave.className = "cursor-click-wave";
-  wave.style.setProperty("--x", `${x}px`);
-  wave.style.setProperty("--y", `${y}px`);
-  document.body.appendChild(wave);
-  wave.addEventListener("animationend", () => wave.remove(), { once: true });
-}
-
-function triggerHapticFeedback(target, x, y) {
-  if (navigator.vibrate) {
-    navigator.vibrate(12);
-  }
-
-  createClickWave(x, y);
-
-  if (!target) return;
-  target.classList.remove("haptic-pulse");
-  void target.offsetWidth;
-  target.classList.add("haptic-pulse");
-  target.addEventListener("animationend", () => target.classList.remove("haptic-pulse"), { once: true });
-}
-
 function initExpressiveCursor() {
   const supportsFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -801,12 +778,6 @@ function initBackgroundParallax() {
   window.addEventListener("scroll", requestTick, { passive: true });
   window.addEventListener("resize", requestTick);
 }
-
-document.addEventListener("pointerdown", (event) => {
-  const target = event.target.closest(clickableSelector);
-  if (!target) return;
-  triggerHapticFeedback(target, event.clientX, event.clientY);
-});
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
