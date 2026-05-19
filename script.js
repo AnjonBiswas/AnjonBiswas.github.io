@@ -508,10 +508,48 @@ function syncHeroActionsPlacement() {
 }
 
 syncHeroActionsPlacement();
+initButtonHoverTracking();
 initCardSpotlight();
 initGlobalSpotlight();
 initHeroParallax();
 initBackgroundParallax();
+
+function initButtonHoverTracking() {
+  const supportsFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (reducedMotionQuery.matches || !supportsFinePointer) return;
+
+  const buttonLikeElements = document.querySelectorAll("button, .btn, .filter-btn, .text-btn");
+  if (!buttonLikeElements.length) return;
+
+  buttonLikeElements.forEach((element) => {
+    element.classList.add("mouse-hover-button");
+
+    const updatePointer = (event) => {
+      if (event.pointerType && event.pointerType !== "mouse") return;
+      const rect = element.getBoundingClientRect();
+      const x = Math.max(0, Math.min(rect.width, event.clientX - rect.left));
+      const y = Math.max(0, Math.min(rect.height, event.clientY - rect.top));
+      element.style.setProperty("--btn-hover-x", `${x}px`);
+      element.style.setProperty("--btn-hover-y", `${y}px`);
+    };
+
+    element.addEventListener("pointerenter", (event) => {
+      if (event.pointerType && event.pointerType !== "mouse") return;
+      updatePointer(event);
+      element.style.setProperty("--btn-hover-opacity", "0.42");
+    });
+
+    element.addEventListener("pointermove", updatePointer);
+
+    element.addEventListener("pointerleave", () => {
+      element.style.setProperty("--btn-hover-opacity", "0");
+    });
+
+    element.addEventListener("blur", () => {
+      element.style.setProperty("--btn-hover-opacity", "0");
+    });
+  });
+}
 
 function initExpressiveCursor() {
   const supportsFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
