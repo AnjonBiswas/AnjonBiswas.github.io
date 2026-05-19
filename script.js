@@ -38,6 +38,16 @@ const projects = [
     status: "Completed",
     type: "IoT",
     tech: ["Arduino", "ESP32-CAM", "Microprocessors"],
+    components: [
+      "Water Pump Motor",
+      "Servo Motor",
+      "RF Transceiver Radio",
+      "Arduino Nano",
+      "ESP32-CAM",
+      "Gyroscope",
+      "Flame Sensor",
+      "etc."
+    ],
     image: "assets/Autonomous Fire Fighting Car.png",
     description:
       "An autonomous fire-fighting robotic car that detects fire using flame sensors and immediately responds by spraying water.",
@@ -234,6 +244,17 @@ const projects = [
     status: "Running / In Progress",
     type: "IoT + Mobile System",
     tech: ["Flutter", "Firebase", "Microprocessors"],
+    components: [
+      "Arduino Nano",
+      "ESP32-CAM",
+      "GPS Module",
+      "OLED Display",
+      "SOS Push Button",
+      "Sound Sensor",
+      "Active Buzzer",
+      "Coin Vibration Motor",
+      "etc."
+    ],
     image: "assets/SafetyNet-Wearable.png",
     description:
       "An IoT-based wearable safety system designed to provide real-time emergency assistance through wearable hardware and mobile connectivity.",
@@ -264,6 +285,7 @@ const projects = [
   }
 ];
 const certificates = [
+  { title: "Advanced Object-Oriented Programming Excellence Award", issuer: "United International University", date: "May 2026", instructor: "Tanmoy Saha", image: "assets/Award%20Certificate%20AOOP.jpg" },
   { title: "Sharpen Your Interview Skills", issuer: "GP Academy", date: "Mar 2026", instructor: "Asif Raihan Fahim", image: "assets/certificate-sharpen-your-interview-skills.jpg" },
   { title: "LinkedIn 101", issuer: "GP Academy", date: "Mar 2026", instructor: "Mahir Hossain", image: "assets/certificate-linkedin-101.jpg" },
   { title: "Corporate Presentation Skills", issuer: "GP Academy", date: "Mar 2026", instructor: "Lubab Bin Abdullah", image: "assets/certificate-corporate-presentation-skills.jpg" },
@@ -305,14 +327,14 @@ const typingText = document.querySelector("#typingText");
 const customCursor = document.querySelector(".custom-cursor");
 const scrollProgressBar = document.querySelector(".scroll-progress-bar");
 const heroSection = document.querySelector(".hero");
+const heroBg = document.querySelector(".hero-bg");
 const heroContent = document.querySelector(".hero-content");
 const heroCopy = document.querySelector(".hero-copy");
 const heroVisual = document.querySelector(".hero-visual");
 const heroActions = document.querySelector(".hero-actions");
 const interactiveMotionCards = document.querySelectorAll(".skill-card, .project-card, .certificate-card, .achievement-card");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-const textFieldSelector = "input, textarea, [contenteditable='true']";
-const clickableSelector = "a, button, [role='button'], .project-card, .certificate-card, .gallery-item, .btn, .filter-btn, .text-btn, .nav-link, .theme-toggle, .nav-toggle, .back-to-top, .modal-close";
+const clickableSelector = "a, button, [role='button'], .project-card, .certificate-card, .gallery-item, .btn, .filter-btn, .text-btn, .nav-link, .theme-toggle, .nav-toggle, .back-to-top, .modal-close, #screenshotTitle";
 const roles = [
   "CSE Undergraduate",
   "Web & Mobile App Developer",
@@ -320,6 +342,38 @@ const roles = [
   "HCI & AI Literacy Explorer",
   
 ];
+
+const skillResourceLinks = {
+  c: "https://en.cppreference.com/w/c",
+  javascript: "https://developer.mozilla.org/docs/Web/JavaScript",
+  php: "https://www.php.net/",
+  python: "https://www.python.org/",
+  java: "https://www.java.com/",
+  html: "https://developer.mozilla.org/docs/Web/HTML",
+  css: "https://developer.mozilla.org/docs/Web/CSS",
+  bootstrap: "https://getbootstrap.com/",
+  flutter: "https://flutter.dev/",
+  "react native": "https://reactnative.dev/",
+  laravel: "https://laravel.com/",
+  firebase: "https://firebase.google.com/",
+  sql: "https://www.mysql.com/what-is-sql/",
+  "spring boot": "https://spring.io/projects/spring-boot",
+  sqlite: "https://www.sqlite.org/",
+  "data structure and algorithm": "https://www.geeksforgeeks.org/dsa-tutorial-learn-data-structures-and-algorithms/",
+  "computer networks": "https://www.cloudflare.com/learning/network-layer/what-is-a-computer-network/",
+  "operating systems": "https://en.wikipedia.org/wiki/Operating_system",
+  microprocessors: "https://en.wikipedia.org/wiki/Microprocessor",
+  git: "https://git-scm.com/",
+  github: "https://github.com/",
+  powerpoint: "https://www.microsoft.com/microsoft-365/powerpoint",
+  "adobe photoshop": "https://www.adobe.com/products/photoshop.html",
+  figma: "https://www.figma.com/",
+  canva: "https://www.canva.com/",
+  communication: "https://en.wikipedia.org/wiki/Communication",
+  presentation: "https://en.wikipedia.org/wiki/Presentation",
+  "problem solving": "https://en.wikipedia.org/wiki/Problem_solving",
+  teamwork: "https://en.wikipedia.org/wiki/Teamwork"
+};
 
 let roleIndex = 0;
 let characterIndex = 0;
@@ -398,6 +452,39 @@ function typeRole() {
 
 typeRole();
 applyStaggeredReveal();
+initSkillBadgeLinks();
+
+function normalizeSkillLabel(label = "") {
+  return label.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function initSkillBadgeLinks() {
+  const skillBadges = document.querySelectorAll(".skills-grid .skill-badge");
+  skillBadges.forEach((badge) => {
+    const label = badge.querySelector("span")?.textContent?.trim() || badge.textContent.trim();
+    const url = skillResourceLinks[normalizeSkillLabel(label)];
+    if (!url) return;
+
+    const openLink = () => window.open(url, "_blank", "noopener,noreferrer");
+    badge.classList.add("skill-badge-link");
+    badge.setAttribute("role", "link");
+    badge.setAttribute("tabindex", "0");
+    badge.setAttribute("title", `Open ${label}`);
+    badge.setAttribute("aria-label", `Open ${label} resource website`);
+
+    badge.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openLink();
+    });
+
+    badge.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      openLink();
+    });
+  });
+}
 
 function syncHeroActionsPlacement() {
   if (!heroContent || !heroCopy || !heroVisual || !heroActions) return;
@@ -424,6 +511,7 @@ syncHeroActionsPlacement();
 initCardSpotlight();
 initGlobalSpotlight();
 initHeroParallax();
+initBackgroundParallax();
 
 function createClickWave(x, y) {
   const wave = document.createElement("span");
@@ -464,19 +552,9 @@ function initExpressiveCursor() {
   customCursor.style.display = "";
   customCursor.style.transform = "translate3d(-50px, -50px, 0)";
 
-  let isTextFieldHover = false;
-
   window.addEventListener("pointermove", (event) => {
     customCursor.style.transform = `translate3d(${event.clientX - 2}px, ${event.clientY - 1}px, 0)`;
     const hoveredElement = document.elementFromPoint(event.clientX, event.clientY);
-    const textField = hoveredElement?.closest?.(textFieldSelector);
-    isTextFieldHover = Boolean(textField);
-
-    if (isTextFieldHover) {
-      customCursor.classList.remove("is-visible", "is-hovering", "is-clicking");
-      return;
-    }
-
     const clickableTarget = hoveredElement?.closest?.(clickableSelector);
     customCursor.classList.add("is-visible");
     customCursor.classList.toggle("is-hovering", Boolean(clickableTarget));
@@ -487,7 +565,6 @@ function initExpressiveCursor() {
   });
 
   document.addEventListener("pointerdown", (event) => {
-    if (isTextFieldHover) return;
     const target = event.target.closest(clickableSelector);
     if (!target) return;
     customCursor.classList.add("is-clicking");
@@ -586,34 +663,89 @@ function initCardSpotlight() {
 }
 
 function initGlobalSpotlight() {
+  if (reducedMotionQuery.matches) return;
   const supportsFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  if (reducedMotionQuery.matches || !supportsFinePointer) return;
 
   const spotlight = document.createElement("div");
   spotlight.className = "site-spotlight";
   spotlight.setAttribute("aria-hidden", "true");
   body.appendChild(spotlight);
+  let touchPointerId = null;
+  let hideTimer = null;
 
   const setSpotlightPosition = (x, y) => {
     spotlight.style.setProperty("--global-spotlight-x", `${x}px`);
     spotlight.style.setProperty("--global-spotlight-y", `${y}px`);
   };
 
+  const showSpotlight = (isTouch = false) => {
+    if (hideTimer) {
+      clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+    spotlight.classList.add("is-visible");
+    spotlight.classList.toggle("is-touch", isTouch);
+  };
+
+  const hideSpotlight = (delayMs = 0) => {
+    if (hideTimer) {
+      clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+    const hide = () => {
+      spotlight.classList.remove("is-visible", "is-touch");
+    };
+    if (delayMs > 0) {
+      hideTimer = setTimeout(hide, delayMs);
+      return;
+    }
+    hide();
+  };
+
   setSpotlightPosition(window.innerWidth / 2, window.innerHeight / 2);
 
-  window.addEventListener("pointermove", (event) => {
+  if (supportsFinePointer) {
+    window.addEventListener("pointermove", (event) => {
+      if (event.pointerType && event.pointerType !== "mouse") return;
+      setSpotlightPosition(event.clientX, event.clientY);
+      showSpotlight(false);
+    });
+
+    document.addEventListener("pointerout", (event) => {
+      if (event.relatedTarget) return;
+      hideSpotlight();
+    });
+
+    window.addEventListener("blur", () => {
+      hideSpotlight();
+    });
+  }
+
+  const isTouchLikePointer = (event) => event.pointerType === "touch" || event.pointerType === "pen";
+
+  window.addEventListener("pointerdown", (event) => {
+    if (!isTouchLikePointer(event)) return;
+    touchPointerId = event.pointerId;
     setSpotlightPosition(event.clientX, event.clientY);
-    spotlight.classList.add("is-visible");
-  });
+    showSpotlight(true);
+  }, { passive: true });
 
-  document.addEventListener("pointerout", (event) => {
-    if (event.relatedTarget) return;
-    spotlight.classList.remove("is-visible");
-  });
+  window.addEventListener("pointermove", (event) => {
+    if (!isTouchLikePointer(event)) return;
+    if (touchPointerId !== null && event.pointerId !== touchPointerId) return;
+    setSpotlightPosition(event.clientX, event.clientY);
+    showSpotlight(true);
+  }, { passive: true });
 
-  window.addEventListener("blur", () => {
-    spotlight.classList.remove("is-visible");
-  });
+  const stopTouchSpotlight = (event) => {
+    if (!isTouchLikePointer(event)) return;
+    if (touchPointerId !== null && event.pointerId !== touchPointerId) return;
+    touchPointerId = null;
+    hideSpotlight(90);
+  };
+
+  window.addEventListener("pointerup", stopTouchSpotlight, { passive: true });
+  window.addEventListener("pointercancel", stopTouchSpotlight, { passive: true });
 }
 
 function initHeroParallax() {
@@ -644,6 +776,30 @@ function initHeroParallax() {
   });
 
   heroSection.addEventListener("pointerleave", resetParallax);
+}
+
+function initBackgroundParallax() {
+  if (!heroBg || reducedMotionQuery.matches) return;
+
+  let rafId = null;
+
+  const update = () => {
+    const isMobile = window.matchMedia("(max-width: 980px)").matches;
+    const factor = isMobile ? 0.035 : 0.06;
+    const maxShift = isMobile ? 36 : 58;
+    const shift = Math.min(maxShift, window.scrollY * factor);
+    heroBg.style.transform = `translate3d(0, ${-shift}px, 0)`;
+    rafId = null;
+  };
+
+  const requestTick = () => {
+    if (rafId !== null) return;
+    rafId = window.requestAnimationFrame(update);
+  };
+
+  update();
+  window.addEventListener("scroll", requestTick, { passive: true });
+  window.addEventListener("resize", requestTick);
 }
 
 document.addEventListener("pointerdown", (event) => {
@@ -762,7 +918,7 @@ function openModal({ title, meta, imageSrc, imageAlt, imageLabel, content, actio
   if (imageSrc) {
     modalMedia.innerHTML = `<img src="${imageSrc}" alt="${imageAlt || title}">`;
   } else {
-    modalMedia.innerHTML = `<span>${imageLabel || "[Project Screenshot]"}</span>`;
+    modalMedia.innerHTML = `<span>${imageLabel || "[Project Image]"}</span>`;
   }
   modalContent.innerHTML = content;
   modalActions.innerHTML = actions;
@@ -787,10 +943,24 @@ function renderFeatureGroups(groups = []) {
     .join("");
 }
 
+function renderChipSection(title, items = []) {
+  if (!items.length) return "";
+  return `
+    <section class="modal-section">
+      <h3>${title}</h3>
+      <div class="badge-list">${items.map((item) => `<span>${item}</span>`).join("")}</div>
+    </section>
+  `;
+}
+
 function closeModal() {
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
   body.style.overflow = "";
+  delete modal.dataset.activeProjectIndex;
+  modalMedia.removeAttribute("role");
+  modalMedia.removeAttribute("tabindex");
+  modalMedia.removeAttribute("aria-label");
 }
 
 function updateScreenshotViewer() {
@@ -799,10 +969,23 @@ function updateScreenshotViewer() {
   screenshotImage.src = activeSlide.src;
   screenshotImage.alt = activeSlide.alt || `Screenshot of ${activeSlide.title}`;
   if (screenshotEyebrow) {
-    screenshotEyebrow.textContent = activeSlide.label || "Project Screenshot";
+    screenshotEyebrow.textContent = activeSlide.label || "Project Image";
   }
   if (screenshotTitle) {
     screenshotTitle.textContent = activeSlide.title || "Screenshot";
+    if (Number.isInteger(activeSlide.projectIndex)) {
+      screenshotTitle.classList.add("screenshot-title-link");
+      screenshotTitle.setAttribute("role", "button");
+      screenshotTitle.setAttribute("tabindex", "0");
+      screenshotTitle.setAttribute("aria-label", `Open project details for ${projects[activeSlide.projectIndex]?.title || "project"}`);
+      screenshotTitle.dataset.projectIndex = String(activeSlide.projectIndex);
+    } else {
+      screenshotTitle.classList.remove("screenshot-title-link");
+      screenshotTitle.removeAttribute("role");
+      screenshotTitle.removeAttribute("tabindex");
+      screenshotTitle.removeAttribute("aria-label");
+      delete screenshotTitle.dataset.projectIndex;
+    }
   }
   if (screenshotCounter) {
     screenshotCounter.textContent = `${screenshotCurrentIndex + 1} / ${screenshotSlides.length}`;
@@ -815,7 +998,7 @@ function updateScreenshotViewer() {
   }
 }
 
-function openScreenshotModal({ src, title, label = "Project Screenshot", slides = null, startIndex = 0 }) {
+function openScreenshotModal({ src, title, label = "Project Image", slides = null, startIndex = 0 }) {
   if (!screenshotModal || !screenshotImage || (!src && !slides?.length)) return;
 
   if (slides?.length) {
@@ -849,6 +1032,13 @@ function closeScreenshotModal() {
   if (!screenshotModal) return;
   screenshotModal.classList.remove("show");
   screenshotModal.setAttribute("aria-hidden", "true");
+  if (screenshotTitle) {
+    screenshotTitle.classList.remove("screenshot-title-link");
+    screenshotTitle.removeAttribute("role");
+    screenshotTitle.removeAttribute("tabindex");
+    screenshotTitle.removeAttribute("aria-label");
+    delete screenshotTitle.dataset.projectIndex;
+  }
   body.style.overflow = modal.classList.contains("show") || cvModal?.classList.contains("show") ? "hidden" : "";
 }
 
@@ -1079,6 +1269,7 @@ function openProjectDetails(index) {
         <h3>Tech Stack</h3>
         <div class="badge-list">${project.tech.map((item) => `<span>${item}</span>`).join("")}</div>
       </section>
+      ${renderChipSection("Components Used", project.components)}
       ${renderFeatureGroups(project.featureGroups)}
       <section class="modal-section">
         <h3>Purpose</h3>
@@ -1093,17 +1284,22 @@ function openProjectDetails(index) {
     `,
     actions: `
       <a href="${project.github}" ${project.github === "#" ? "" : 'target="_blank" rel="noreferrer"'}>GitHub ${project.github === "#" ? "[Add Later]" : ""}</a>
-      <button type="button" class="modal-open-screenshot" data-index="${index}">Screenshot</button>
     `
   });
+
+  modal.dataset.activeProjectIndex = String(index);
+  modalMedia.setAttribute("role", "button");
+  modalMedia.setAttribute("tabindex", "0");
+  modalMedia.setAttribute("aria-label", `Open large screenshot for ${project.title}`);
 }
 
 const projectCards = document.querySelectorAll(".project-card");
-const projectSlides = projects.map((project) => ({
+const projectSlides = projects.map((project, index) => ({
   src: project.image,
-  title: `${project.title} - Screenshot`,
+  title: `${project.title}`,
   alt: `Screenshot of ${project.title}`,
-  label: "Project Screenshot"
+  label: "Project Image",
+  projectIndex: index
 }));
 
 projectCards.forEach((card, index) => {
@@ -1134,20 +1330,50 @@ document.querySelectorAll(".project-screenshot").forEach((link, index) => {
     const project = projects[index];
     openScreenshotModal({
       src: project?.image,
-      title: `${project?.title || "Project"} - Screenshot`,
-      label: "Project Screenshot"
+      title: `${project?.title || "Project"}`,
+      label: "Project Image"
     });
   });
 });
 
-modalActions.addEventListener("click", (event) => {
-  const target = event.target.closest(".modal-open-screenshot");
-  if (!target) return;
-  const index = Number(target.dataset.index);
+const openProjectModalImagePreview = () => {
+  const activeProjectIndex = Number(modal.dataset.activeProjectIndex);
+  if (Number.isNaN(activeProjectIndex) || !projects[activeProjectIndex]) return;
   openScreenshotModal({
     slides: projectSlides,
-    startIndex: index
+    startIndex: activeProjectIndex
   });
+};
+
+modalMedia.addEventListener("click", () => {
+  if (!modal.classList.contains("show")) return;
+  openProjectModalImagePreview();
+});
+
+modalMedia.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  if (!modal.classList.contains("show")) return;
+  openProjectModalImagePreview();
+});
+
+const openProjectDetailsFromScreenshotTitle = () => {
+  const projectIndex = Number(screenshotTitle?.dataset.projectIndex);
+  if (Number.isNaN(projectIndex) || !projects[projectIndex]) return;
+  closeScreenshotModal();
+  openProjectDetails(projectIndex);
+};
+
+screenshotTitle?.addEventListener("click", () => {
+  if (!screenshotModal.classList.contains("show")) return;
+  openProjectDetailsFromScreenshotTitle();
+});
+
+screenshotTitle?.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  if (!screenshotModal.classList.contains("show")) return;
+  openProjectDetailsFromScreenshotTitle();
 });
 
 const certificateCards = document.querySelectorAll(".certificate-card");
