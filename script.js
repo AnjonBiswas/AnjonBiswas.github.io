@@ -206,6 +206,41 @@ const projects = [
     demo: "#"
   },
   {
+    title: "PocketSense BD - Student Money Management App",
+    year: "2026",
+    status: "Completed",
+    type: "Web Application / PWA",
+    tech: ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Supabase", "Zustand", "SWR"],
+    image: "assets/PocketSense.png",
+    description:
+      "PocketSense BD is a student money management app for Bangladesh that helps track expenses, income, savings goals, and group spending.",
+    overview:
+      "PocketSense BD is a student money management app for Bangladesh, built with Next.js and Supabase. It helps users track daily expenses and monthly income, manage budget goals, split group expenses, and review spending insights in Bangla or English.",
+    featureGroups: [
+      {
+        title: "Features",
+        items: [
+          "Track daily expenses and monthly income",
+          "Monitor daily spending limits and budget progress",
+          "Set savings goals and emergency reserve amounts",
+          "Manage group expenses with squad-based bill splitting",
+          "View reports, charts, category breakdowns, and insights",
+          "Use the app in Bangla and English with PWA support"
+        ]
+      }
+    ],
+    purpose:
+      "To help students manage money more clearly with simple budgeting, savings, and shared expense tools tailored for Bangladesh.",
+    learning: [
+      "Next.js application architecture",
+      "Supabase-backed data handling",
+      "State management with Zustand",
+      "User-focused budgeting and insight design"
+    ],
+    github: "https://github.com/AnjonBiswas/pocketsense-bd",
+    demo: "#"
+  },
+  {
     title: "Writing Archive Site",
     year: "2026",
     status: "Completed",
