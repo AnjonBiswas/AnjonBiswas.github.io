@@ -356,6 +356,7 @@ const cvView = cvModal?.querySelector(".cv-view");
 const cvFrame = document.querySelector("#cvFrame");
 const cvMobilePages = document.querySelector("#cvMobilePages");
 const cvStatus = document.querySelector("#cvStatus");
+const cvOpenLink = document.querySelector("#cvOpenLink");
 const cvDownloadLink = document.querySelector("#cvDownloadLink");
 const downloadFrame = document.querySelector("#downloadFrame");
 const typingText = document.querySelector("#typingText");
@@ -1098,6 +1099,22 @@ function isMobileCvMode() {
   return window.matchMedia("(max-width: 900px)").matches;
 }
 
+function getVersionedCvUrl(pdfSrc = cvView?.dataset.pdfSrc) {
+  if (!pdfSrc) return "";
+  const versionedUrl = new URL(pdfSrc, window.location.href);
+  const pdfVersion = cvView?.dataset.pdfVersion || "latest";
+  versionedUrl.searchParams.set("v", pdfVersion);
+  return versionedUrl.href;
+}
+
+function syncCvLinks() {
+  const pdfUrl = getVersionedCvUrl();
+  if (pdfUrl && cvOpenLink) {
+    cvOpenLink.href = pdfUrl;
+  }
+  return pdfUrl;
+}
+
 function loadPdfJs() {
   if (window.pdfjsLib) {
     return Promise.resolve(window.pdfjsLib);
@@ -1166,7 +1183,7 @@ async function loadCvForMobile(pdfSrc) {
 }
 
 function ensureCvLoaded() {
-  const pdfSrc = cvView?.dataset.pdfSrc;
+  const pdfSrc = syncCvLinks();
   if (!pdfSrc || !cvFrame || !cvView) {
     setCvStatus("Unable to load CV preview here. Use Open PDF.");
     return;
@@ -1202,7 +1219,7 @@ function closeCvModal() {
 
 async function forceDownloadCv(event) {
   event?.preventDefault();
-  const pdfSrc = cvView?.dataset.pdfSrc;
+  const pdfSrc = syncCvLinks();
   if (!pdfSrc) return;
   const fileName = "Anjon-Biswas-CV.pdf";
   const resolvedPdfUrl = new URL(pdfSrc, window.location.href).href;
