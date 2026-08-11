@@ -4468,53 +4468,59 @@ button.mouse-hover-button::before {
   }
 }
 
+/* Project cards: cinematic glass-dock concept */
 #projects .project-grid {
-  counter-reset: project-card;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 #projects .project-card {
+  --project-accent: var(--accent);
   position: relative;
   display: flex;
-  flex-direction: column;
-  min-height: 322px;
+  min-height: 360px;
   padding: 0;
   isolation: isolate;
   overflow: hidden;
-  counter-increment: project-card;
-  border-radius: 16px;
-  border-color: color-mix(in srgb, var(--border) 86%, transparent);
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 90%, transparent), color-mix(in srgb, var(--surface) 78%, transparent)),
-    color-mix(in srgb, var(--bg-soft) 18%, transparent);
+  border-radius: 22px;
+  border-color: color-mix(in srgb, var(--project-accent) 28%, var(--border));
+  background: color-mix(in srgb, var(--bg-soft) 78%, #000000 22%);
   box-shadow:
-    0 12px 30px color-mix(in srgb, #000000 18%, transparent),
-    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    0 24px 64px color-mix(in srgb, #000000 34%, transparent),
+    0 1px 0 rgba(255, 255, 255, 0.1) inset;
 }
 
 #projects .project-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
-  border-top: 3px solid color-mix(in srgb, var(--accent) 74%, var(--accent-3));
-  opacity: 0.9;
+  background:
+    linear-gradient(180deg, rgba(4, 10, 20, 0.04) 0%, rgba(4, 10, 20, 0.1) 42%, rgba(4, 10, 20, 0.78) 100%),
+    radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--project-accent) 26%, transparent), transparent 38%);
+  opacity: 0.86;
   transition: opacity var(--dur-medium) var(--ease-gentle);
 }
 
 #projects .project-card::after {
-  content: none;
+  content: "";
+  position: absolute;
+  inset: 12px;
+  z-index: 2;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 17px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--project-accent) 12%, transparent) inset;
 }
 
 #projects .project-card:hover,
 #projects .project-card:focus-visible {
-  transform: translateY(-5px);
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  transform: translateY(-8px);
+  border-color: color-mix(in srgb, var(--project-accent) 66%, var(--border));
   box-shadow:
-    0 18px 42px color-mix(in srgb, #000000 24%, transparent),
-    0 0 0 1px color-mix(in srgb, var(--accent) 14%, transparent) inset;
+    0 30px 78px color-mix(in srgb, #000000 42%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--project-accent) 26%, transparent) inset;
 }
 
 #projects .project-card:hover::before,
@@ -4523,143 +4529,121 @@ button.mouse-hover-button::before {
 }
 
 #projects .project-image {
-  position: relative;
-  z-index: 1;
-  height: 150px;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  order: initial;
+  height: 100%;
   min-height: 0;
-  aspect-ratio: auto;
   overflow: hidden;
   border: 0;
   border-radius: 0;
-  background: color-mix(in srgb, var(--bg-soft) 74%, #000000 26%);
-  box-shadow: none;
+  clip-path: none;
+  background: color-mix(in srgb, var(--bg-soft) 72%, #000000 28%);
 }
 
 #projects .project-image::after {
   content: "";
   position: absolute;
-  inset: auto 0 0;
-  height: 58%;
+  inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent, rgba(4, 10, 20, 0.72));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--project-accent) 10%, transparent), transparent 42%),
+    linear-gradient(180deg, transparent 48%, rgba(4, 10, 20, 0.82) 100%);
 }
 
 #projects .project-image img,
 #projects .project-image video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
+  filter: saturate(1.04) contrast(1.02);
+  transform-origin: center;
+}
+
+#projects .project-card:hover .project-image img,
+#projects .project-card:hover .project-image video {
+  transform: scale(1.06);
 }
 
 #projects .project-body {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  order: initial;
   min-width: 0;
   display: flex;
-  flex-direction: column;
   flex: 1;
-  padding: 15px;
-}
-
-#projects .project-topline {
-  position: static;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin: 0 0 9px;
-  padding-right: 0;
-  font-size: 0.7rem;
-}
-
-#projects .project-topline > span:first-child,
-#projects .project-topline .status {
-  min-height: 22px;
-  padding: 0 8px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--border) 84%, transparent);
-  box-shadow: none;
-  backdrop-filter: none;
-}
-
-#projects .project-topline > span:first-child {
-  background: color-mix(in srgb, var(--surface-strong) 66%, transparent);
-  color: color-mix(in srgb, var(--text) 78%, var(--muted) 22%);
-  font-weight: 800;
-}
-
-#projects .project-topline .status {
-  font-size: 0.6rem;
-}
-
-#projects .status.completed {
-  color: #062116;
-  background: color-mix(in srgb, var(--success) 90%, white 10%);
-}
-
-#projects .status.running {
-  color: #2b1b00;
-  background: color-mix(in srgb, var(--warning) 92%, white 8%);
+  flex-direction: column;
+  align-self: flex-end;
+  margin: 214px 14px 14px;
+  padding: 10px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(7, 17, 31, 0.5);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(18px);
 }
 
 #projects .project-card h3 {
-  margin: 0 0 7px;
-  min-height: 2.38em;
-  color: var(--text);
-  font-size: 1.08rem;
-  line-height: 1.19;
+  margin: 0 0 5px;
+  min-height: 0;
+  color: #f5f8ff;
+  font-size: 0.98rem;
+  line-height: 1.16;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   overflow: hidden;
 }
 
 #projects .project-body p {
-  margin: 0 0 12px;
-  color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
-  font-size: 0.8rem;
-  line-height: 1.5;
+  margin: 0 0 8px;
+  color: rgba(224, 232, 246, 0.78);
+  font-size: 0.72rem;
+  line-height: 1.38;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   overflow: hidden;
 }
 
 #projects .project-body .badge-list {
-  gap: 6px;
-  margin: 0 0 13px;
+  display: none;
 }
 
 #projects .project-body .badge-list span {
   min-height: 20px;
   padding: 0 7px;
-  border-radius: 7px;
-  border-color: color-mix(in srgb, var(--border) 84%, transparent);
-  background: color-mix(in srgb, var(--surface-strong) 52%, transparent);
-  font-size: 0.64rem;
-  color: color-mix(in srgb, var(--text) 82%, var(--muted) 18%);
+  border-radius: 999px;
+  border-color: color-mix(in srgb, var(--project-accent) 28%, rgba(255, 255, 255, 0.16));
+  background: color-mix(in srgb, var(--project-accent) 12%, transparent);
+  color: rgba(245, 248, 255, 0.86);
+  font-size: 0.63rem;
 }
 
 #projects .card-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 7px;
   margin-top: auto;
 }
 
 #projects .card-actions a,
 #projects .card-actions .text-btn {
   min-width: 0;
-  min-height: 34px;
-  padding: 0 10px;
-  border-radius: 10px;
-  border-color: color-mix(in srgb, var(--border) 88%, transparent);
-  background: color-mix(in srgb, var(--surface-strong) 62%, transparent);
-  font-size: 0.72rem;
+  min-height: 30px;
+  padding: 0 9px;
+  border-radius: 999px;
+  border-color: color-mix(in srgb, var(--project-accent) 32%, rgba(255, 255, 255, 0.18));
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5f8ff;
+  font-size: 0.7rem;
   box-shadow: none;
 }
 
 #projects .card-actions .text-btn {
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 86%, white 14%), var(--accent-3));
+  background: linear-gradient(135deg, color-mix(in srgb, var(--project-accent) 84%, white 16%), var(--accent-3));
   border-color: transparent;
   color: #06111f;
 }
@@ -4668,41 +4652,86 @@ button.mouse-hover-button::before {
   #projects .project-grid {
     grid-template-columns: 1fr;
   }
-
 }
 
 @media (max-width: 560px) {
   #projects .project-card {
-    min-height: 0;
-    border-radius: 16px;
+    min-height: 326px;
+    border-radius: 18px;
   }
 
-  #projects .project-image {
-    height: 132px;
+  #projects .project-card::after {
+    inset: 9px;
+    border-radius: 14px;
   }
 
   #projects .project-body {
-    padding: 13px;
+    margin: 190px 10px 10px;
+    padding: 10px;
+    border-radius: 14px;
   }
 
   #projects .project-card h3 {
-    min-height: 0;
-    font-size: 0.94rem;
-    -webkit-line-clamp: 2;
+    font-size: 0.92rem;
   }
 
   #projects .project-body p {
-    font-size: 0.74rem;
-    -webkit-line-clamp: 2;
+    font-size: 0.7rem;
   }
 
   #projects .project-body .badge-list span {
-    font-size: 0.64rem;
+    font-size: 0.62rem;
   }
 
   #projects .card-actions a,
   #projects .card-actions .text-btn {
-    min-height: 32px;
+    min-height: 30px;
   }
+}
+
+[data-theme="light"] #projects .project-card {
+  border-color: color-mix(in srgb, var(--accent) 28%, rgba(22, 37, 65, 0.16));
+  background: color-mix(in srgb, #eaf1fb 78%, #ffffff 22%);
+  box-shadow:
+    0 18px 42px rgba(42, 63, 100, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.86) inset;
+}
+
+[data-theme="light"] #projects .project-card::before {
+  background:
+    linear-gradient(180deg, rgba(5, 18, 40, 0.02) 0%, rgba(5, 18, 40, 0.06) 44%, rgba(5, 18, 40, 0.36) 100%),
+    radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 38%);
+}
+
+[data-theme="light"] #projects .project-image::after {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 9%, transparent), transparent 42%),
+    linear-gradient(180deg, transparent 52%, rgba(5, 18, 40, 0.34) 100%);
+}
+
+[data-theme="light"] #projects .project-body {
+  border-color: rgba(22, 37, 65, 0.14);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 14px 34px rgba(42, 63, 100, 0.16);
+}
+
+[data-theme="light"] #projects .project-card h3 {
+  color: #091427;
+}
+
+[data-theme="light"] #projects .project-body p {
+  color: #44566f;
+}
+
+[data-theme="light"] #projects .card-actions a,
+[data-theme="light"] #projects .card-actions .text-btn {
+  border-color: color-mix(in srgb, var(--accent) 26%, rgba(22, 37, 65, 0.16));
+  background: rgba(255, 255, 255, 0.78);
+  color: #10203a;
+}
+
+[data-theme="light"] #projects .card-actions .text-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  color: #ffffff;
 }
 
