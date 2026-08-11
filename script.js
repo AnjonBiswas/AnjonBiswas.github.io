@@ -1,81 +1,5 @@
 const projects = [
   {
-    title: "Smart Cafe Management System",
-    year: "2023",
-    status: "Completed",
-    type: "Console-Based Application",
-    tech: ["C"],
-    image: "assets/Smart%20Caf%C3%A9%20Management%20System.png",
-    description:
-      "A console-based cafe management system built in C that simulates daily cafe operations like order handling, billing, and menu management.",
-    overview:
-      "The Smart Cafe Management System is a console-based application built in C that simulates real cafe operations such as order handling, billing, and menu management.",
-    featureGroups: [
-      {
-        title: "Features",
-        items: [
-          "Menu display and item selection",
-          "Order processing system",
-          "Automated bill generation",
-          "Structured data handling",
-          "Simple and user-friendly console interaction"
-        ]
-      }
-    ],
-    purpose:
-      "To build strong programming fundamentals and apply logic to a real-world business scenario.",
-    learning: [
-      "Core C programming concepts",
-      "Problem-solving and logic building",
-      "File handling and structured programming"
-    ],
-    github: "https://github.com/AnjonBiswas/Smart-Cafe-Management-System",
-    demo: "#"
-  },
-  {
-    title: "Autonomous Fire Fighting Car",
-    year: "2024",
-    status: "Completed",
-    type: "IoT",
-    tech: ["Arduino", "ESP32-CAM", "Microprocessors"],
-    components: [
-      "Water Pump Motor",
-      "Servo Motor",
-      "RF Transceiver Radio",
-      "Arduino Nano",
-      "ESP32-CAM",
-      "Gyroscope",
-      "Flame Sensor",
-      "etc."
-    ],
-    image: "assets/Autonomous Fire Fighting Car.png",
-    description:
-      "An autonomous fire-fighting robotic car that detects fire using flame sensors and immediately responds by spraying water.",
-    overview:
-      "An autonomous fire-fighting robotic car that detects fire using flame sensors and immediately responds by spraying water. The system combines sensor-based detection, wireless communication, and mechanical control to create a real-time emergency response prototype.",
-    featureGroups: [
-      {
-        title: "Features",
-        items: [
-          "Automatic fire detection using flame sensors",
-          "Water pump activation for fire suppression",
-          "Camera support (ESP32-CAM) for monitoring",
-          "Servo-controlled directional spraying system"
-        ]
-      }
-    ],
-    purpose:
-      "To design a low-cost, real-time fire detection and response system using embedded electronics and IoT concepts.",
-    learning: [
-      "Microcontroller programming (Arduino)",
-      "Wireless communication systems",
-      "Hardware-software integration",
-      "Building real-world safety solutions"
-    ],
-    github: "#",
-    demo: "#"
-  },
-  {
     title: "SafetyNet - Mobile App",
     year: "2025",
     status: "Completed",
@@ -206,6 +130,49 @@ const projects = [
     demo: "#"
   },
   {
+    title: "Autonomous Fire Fighting Car",
+    year: "2024",
+    status: "Completed",
+    type: "IoT",
+    tech: ["Arduino", "ESP32-CAM", "Microprocessors"],
+    components: [
+      "Water Pump Motor",
+      "Servo Motor",
+      "RF Transceiver Radio",
+      "Arduino Nano",
+      "ESP32-CAM",
+      "Gyroscope",
+      "Flame Sensor",
+      "etc."
+    ],
+    image: "assets/Autonomous Fire Fighting Car.png",
+    description:
+      "An autonomous fire-fighting robotic car that detects fire using flame sensors and immediately responds by spraying water.",
+    overview:
+      "An autonomous fire-fighting robotic car that detects fire using flame sensors and immediately responds by spraying water. The system combines sensor-based detection, wireless communication, and mechanical control to create a real-time emergency response prototype.",
+    featureGroups: [
+      {
+        title: "Features",
+        items: [
+          "Automatic fire detection using flame sensors",
+          "Water pump activation for fire suppression",
+          "Camera support (ESP32-CAM) for monitoring",
+          "Servo-controlled directional spraying system"
+        ]
+      }
+    ],
+    purpose:
+      "To design a low-cost, real-time fire detection and response system using embedded electronics and IoT concepts.",
+    learning: [
+      "Microcontroller programming (Arduino)",
+      "Wireless communication systems",
+      "Hardware-software integration",
+      "Building real-world safety solutions"
+    ],
+    github: "#",
+    demo: "#"
+  },
+  {
     title: "PocketSense BD - Student Money Management App",
     year: "2026",
     status: "Completed",
@@ -241,36 +208,47 @@ const projects = [
     demo: "#"
   },
   {
-    title: "Writing Archive Site",
+    title: "ToolsInOne",
     year: "2026",
-    status: "Completed",
-    type: "Static Website",
-    tech: ["HTML", "CSS", "JavaScript"],
-    image: "assets/Writing Archive Site.png",
+    status: "Running / In Progress",
+    type: "Web Utility Platform",
+    tech: ["TypeScript", "Python", "JavaScript", "CSS"],
+    image: "assets/Recording%202026-08-10%20151207.mp4",
+    mediaType: "video",
     description:
-      "A personal archive site created to preserve and publicly showcase my father's writings.",
+      "ToolsInOne is an all-in-one workspace that brings document, image, video, audio, AI, developer, design, SEO, calculator, and social media utilities into one clean experience.",
     overview:
-      "A personal archive website built to preserve and showcase my father's writings. It serves as a digital platform for long-term storage and public access.",
+      "ToolsInOne is a unified utility hub for everyday digital tasks. It is designed for quick work, repeat workflows, and users who want document, media, AI, developer, design, SEO, calculator, and social tools without switching between dozens of separate websites.",
     featureGroups: [
       {
-        title: "Features",
+        title: "Tool Categories",
         items: [
-          "Clean reading-focused interface",
-          "Organized content structure",
-          "Easy navigation between writings",
-          "Fully responsive design",
-          "Public accessibility"
+          "Document tools for PDF merging, splitting, compression, conversion, OCR, watermarking, protection, metadata, and page handling",
+          "Image tools for background removal, resizing, compression, conversion, cleanup, palettes, favicons, collage creation, OCR, and AI enhancement",
+          "Video and audio tools for compression, trimming, conversion, subtitles, audio extraction, transcription, text-to-speech, and noise reduction",
+          "AI tools for chat, writing, rewriting, translation, grammar, summaries, resumes, emails, blogs, code help, SQL, regex, and interview prep",
+          "Developer, design, SEO, social media, and calculator utilities for everyday productivity"
+        ]
+      },
+      {
+        title: "Platform Experience",
+        items: [
+          "Fast, focused workflows in a polished responsive interface",
+          "Free and premium account access with daily usage limits for free users",
+          "Secure file handling, authenticated downloads, device-aware abuse prevention, and automatic cleanup",
+          "Payment support prepared for Stripe, SSLCommerz, bKash, Rocket, and Nagad"
         ]
       }
     ],
     purpose:
-      "To preserve meaningful literary work and make it accessible for future generations.",
+      "To create a dependable utility hub for students, creators, freelancers, developers, marketers, and businesses.",
     learning: [
-      "Content-focused UI and UX design",
-      "Static website structuring",
-      "Building projects with emotional and real-world value"
+      "Designing a large multi-tool product experience",
+      "Planning secure file-processing workflows",
+      "Structuring free-tier and premium access models",
+      "Building payment-ready SaaS features for local and international users"
     ],
-    github: "https://github.com/AnjonBiswas/writing_archive_site",
+    github: "#",
     demo: "#"
   },
   {
@@ -360,7 +338,6 @@ const cvOpenLink = document.querySelector("#cvOpenLink");
 const cvDownloadLink = document.querySelector("#cvDownloadLink");
 const downloadFrame = document.querySelector("#downloadFrame");
 const typingText = document.querySelector("#typingText");
-const customCursor = document.querySelector(".custom-cursor");
 const scrollProgressBar = document.querySelector(".scroll-progress-bar");
 const heroSection = document.querySelector(".hero");
 const heroBg = document.querySelector(".hero-bg");
@@ -370,7 +347,6 @@ const heroVisual = document.querySelector(".hero-visual");
 const heroActions = document.querySelector(".hero-actions");
 const interactiveMotionCards = document.querySelectorAll(".skill-card, .project-card, .certificate-card, .achievement-card");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-const clickableSelector = "a, button, [role='button'], .project-card, .certificate-card, .gallery-item, .btn, .filter-btn, .text-btn, .nav-link, .theme-toggle, .nav-toggle, .back-to-top, .modal-close, #screenshotTitle";
 const roles = [
   "CSE Undergraduate",
   "Web & Mobile App Developer",
@@ -586,47 +562,6 @@ function initButtonHoverTracking() {
     });
   });
 }
-
-function initExpressiveCursor() {
-  const supportsFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (!customCursor || !supportsFinePointer || prefersReducedMotion) {
-    body.classList.remove("custom-cursor-ready");
-    if (!customCursor) return;
-    customCursor.classList.remove("is-visible", "is-hovering", "is-clicking");
-    customCursor.style.display = "none";
-    return;
-  }
-
-  body.classList.add("custom-cursor-ready");
-  customCursor.style.display = "";
-  customCursor.style.transform = "translate3d(-50px, -50px, 0)";
-
-  window.addEventListener("pointermove", (event) => {
-    customCursor.style.transform = `translate3d(${event.clientX - 2}px, ${event.clientY - 1}px, 0)`;
-    const hoveredElement = document.elementFromPoint(event.clientX, event.clientY);
-    const clickableTarget = hoveredElement?.closest?.(clickableSelector);
-    customCursor.classList.add("is-visible");
-    customCursor.classList.toggle("is-hovering", Boolean(clickableTarget));
-  });
-
-  document.addEventListener("mouseleave", () => {
-    customCursor.classList.remove("is-visible", "is-hovering", "is-clicking");
-  });
-
-  document.addEventListener("pointerdown", (event) => {
-    const target = event.target.closest(clickableSelector);
-    if (!target) return;
-    customCursor.classList.add("is-clicking");
-  });
-
-  document.addEventListener("pointerup", () => {
-    customCursor.classList.remove("is-clicking");
-  });
-}
-
-initExpressiveCursor();
 
 function applyStaggeredReveal() {
   const staggerGroups = [
@@ -960,11 +895,14 @@ function linkLabel(url, fallback) {
   return url === "#" ? fallback : url;
 }
 
-function openModal({ title, meta, imageSrc, imageAlt, imageLabel, content, actions }) {
+function openModal({ title, meta, imageSrc, imageAlt, imageLabel, mediaType = "image", content, actions }) {
   modalTitle.textContent = title;
   modalMeta.textContent = meta;
   if (imageSrc) {
-    modalMedia.innerHTML = `<img src="${imageSrc}" alt="${imageAlt || title}">`;
+    modalMedia.innerHTML =
+      mediaType === "video"
+        ? `<video src="${imageSrc}" autoplay muted loop playsinline controls aria-label="${imageAlt || title}"></video>`
+        : `<img src="${imageSrc}" alt="${imageAlt || title}">`;
   } else {
     modalMedia.innerHTML = `<span>${imageLabel || "[Project Image]"}</span>`;
   }
@@ -1006,6 +944,7 @@ function closeModal() {
   modal.setAttribute("aria-hidden", "true");
   body.style.overflow = "";
   delete modal.dataset.activeProjectIndex;
+  delete modal.dataset.activeProjectMediaType;
   modalMedia.removeAttribute("role");
   modalMedia.removeAttribute("tabindex");
   modalMedia.removeAttribute("aria-label");
@@ -1323,7 +1262,8 @@ function openProjectDetails(index) {
     title: project.title,
     meta: `${project.year} - ${project.type} - ${project.status}`,
     imageSrc: project.image,
-    imageAlt: `Screenshot of ${project.title}`,
+    imageAlt: project.mediaType === "video" ? `${project.title} video preview` : `Screenshot of ${project.title}`,
+    mediaType: project.mediaType,
     content: `
       <section class="modal-section">
         <h3>Overview</h3>
@@ -1352,19 +1292,29 @@ function openProjectDetails(index) {
   });
 
   modal.dataset.activeProjectIndex = String(index);
-  modalMedia.setAttribute("role", "button");
-  modalMedia.setAttribute("tabindex", "0");
-  modalMedia.setAttribute("aria-label", `Open large screenshot for ${project.title}`);
+  modal.dataset.activeProjectMediaType = project.mediaType || "image";
+  if (project.mediaType === "video") {
+    modalMedia.removeAttribute("role");
+    modalMedia.removeAttribute("tabindex");
+    modalMedia.removeAttribute("aria-label");
+  } else {
+    modalMedia.setAttribute("role", "button");
+    modalMedia.setAttribute("tabindex", "0");
+    modalMedia.setAttribute("aria-label", `Open large screenshot for ${project.title}`);
+  }
 }
 
 const projectCards = document.querySelectorAll(".project-card");
-const projectSlides = projects.map((project, index) => ({
-  src: project.image,
-  title: `${project.title}`,
-  alt: `Screenshot of ${project.title}`,
-  label: "Project Image",
-  projectIndex: index
-}));
+const projectSlides = projects
+  .map((project, index) => ({
+    src: project.image,
+    title: `${project.title}`,
+    alt: `Screenshot of ${project.title}`,
+    label: "Project Image",
+    projectIndex: index,
+    mediaType: project.mediaType || "image"
+  }))
+  .filter((slide) => slide.mediaType === "image");
 
 projectCards.forEach((card, index) => {
   card.setAttribute("tabindex", "0");
@@ -1402,10 +1352,12 @@ document.querySelectorAll(".project-screenshot").forEach((link, index) => {
 
 const openProjectModalImagePreview = () => {
   const activeProjectIndex = Number(modal.dataset.activeProjectIndex);
+  if (modal.dataset.activeProjectMediaType === "video") return;
   if (Number.isNaN(activeProjectIndex) || !projects[activeProjectIndex]) return;
+  const startIndex = projectSlides.findIndex((slide) => slide.projectIndex === activeProjectIndex);
   openScreenshotModal({
     slides: projectSlides,
-    startIndex: activeProjectIndex
+    startIndex: Math.max(startIndex, 0)
   });
 };
 
