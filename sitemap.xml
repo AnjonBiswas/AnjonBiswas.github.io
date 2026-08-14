@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://itsanjon.me/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://itsanjon.me/assets/Anjon%20Biswas.jpg</image:loc>
+      <image:title>Anjon Biswas portrait</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://itsanjon.me/assets/SafetyNet-mobile%20app.png</image:loc>
+      <image:title>SafetyNet Mobile App</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://itsanjon.me/assets/HealthMatrix.png</image:loc>
+      <image:title>HealthMatrix Smart Diet Management System</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://itsanjon.me/assets/PocketSense.png</image:loc>
+      <image:title>PocketSense BD Student Money Management App</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://itsanjon.me/privacy-policy.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://itsanjon.me/terms-and-conditions.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+</urlset>

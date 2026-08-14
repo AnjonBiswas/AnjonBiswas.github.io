@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Terms and Conditions for using the Anjon Biswas portfolio website, including content ownership, acceptable use, external links, and limitations.">
+  <meta name="author" content="Anjon Biswas">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b1226">
+  <link rel="canonical" href="https://itsanjon.me/terms-and-conditions.html">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="assets/Anjon%20Biswas.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="assets/Anjon%20Biswas.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Anjon Biswas Portfolio">
+  <meta property="og:title" content="Terms &amp; Conditions | Anjon Biswas">
+  <meta property="og:description" content="Terms for using the Anjon Biswas portfolio website, project content, resume information, and external resources.">
+  <meta property="og:url" content="https://itsanjon.me/terms-and-conditions.html">
+  <meta property="og:image" content="https://itsanjon.me/assets/Anjon%20Biswas.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terms &amp; Conditions | Anjon Biswas">
+  <meta name="twitter:description" content="Terms and Conditions for the Anjon Biswas portfolio website.">
+  <title>Terms &amp; Conditions | Anjon Biswas Portfolio</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="legal-page">
+  <header class="legal-header" id="top">
+    <a href="index.html#home" class="legal-brand" aria-label="Back to portfolio home">
+      <span class="legal-brand-mark">
+        <img src="assets/Anjon%20Biswas.jpg" alt="Anjon Biswas">
+      </span>
+      <span>
+        <strong>Anjon Biswas</strong>
+        <small>Portfolio Terms</small>
+      </span>
+    </a>
+    <div class="legal-header-actions">
+      <a href="privacy-policy.html" class="legal-nav-link">Privacy</a>
+      <button class="theme-toggle legal-theme-toggle" type="button" aria-label="Toggle dark and light mode">
+        <span class="theme-icon" aria-hidden="true">?</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="legal-shell">
+    <section class="legal-hero">
+      <p class="eyebrow">Terms &amp; Conditions</p>
+      <h1>Terms &amp; Conditions for this portfolio.</h1>
+      <p>These terms explain the permitted use of this website, its content, project information, and external resources.</p>
+      <span>Last updated: August 14, 2026</span>
+    </section>
+
+    <section class="legal-card">
+      <h2>Purpose Of This Website</h2>
+      <p>This website is the personal portfolio of Anjon Biswas. It presents projects, skills, certificates, education, resume information, contact options, and public professional links.</p>
+    </section>
+
+    <section class="legal-card">
+      <h2>Acceptable Use</h2>
+      <ul>
+        <li>Do not attempt to disrupt, copy maliciously, scrape abusively, or attack the website.</li>
+        <li>Do not submit spam, harmful content, false information, or abusive messages through the contact form.</li>
+        <li>Do not misuse the listed email address, social profiles, project links, or downloadable files.</li>
+      </ul>
+    </section>
+
+    <section class="legal-card">
+      <h2>Content Ownership</h2>
+      <p>Unless otherwise stated, the portfolio design, written content, project summaries, resume materials, and visual presentation belong to Anjon Biswas. Third-party logos, icons, libraries, tools, and platform names belong to their respective owners.</p>
+    </section>
+
+    <section class="legal-card">
+      <h2>Project And Resume Information</h2>
+      <p>I try to keep the information accurate and updated, but portfolio content may change over time. Project descriptions, screenshots, videos, GitHub activity, resume files, and external links are provided for informational and professional review purposes.</p>
+    </section>
+
+    <section class="legal-card">
+      <h2>External Links</h2>
+      <p>This website may link to GitHub, LinkedIn, Facebook, project repositories, certificates, videos, or other resources. I am not responsible for the content, privacy practices, or availability of external websites.</p>
+    </section>
+
+    <section class="legal-card">
+      <h2>No Warranty</h2>
+      <p>This website is provided as a personal portfolio. It is offered without warranties of any kind, including guarantees that every page, link, file, or third-party service will always be available or error-free.</p>
+    </section>
+
+    <section class="legal-card">
+      <h2>Limitation Of Liability</h2>
+      <p>To the fullest extent allowed by applicable law, I am not responsible for losses or damages resulting from use of this website, reliance on portfolio content, or interactions with third-party links and services.</p>
+    </section>
+
+    <section class="legal-card">
+      <h2>Changes To These Terms</h2>
+      <p>These terms may be updated when the website, services, or legal needs change. The updated date on this page will show the latest revision.</p>
+    </section>
+
+    <section class="legal-card legal-contact-card">
+      <h2>Contact</h2>
+      <p>For questions about these terms, contact me at <a href="mailto:abanjon123@gmail.com">abanjon123@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="legal-footer">
+    <p>Copyright &copy; 2026 Anjon Biswas. All rights reserved.</p>
+    <div>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="index.html#home">Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <script>
+    const savedTheme = localStorage.getItem("portfolioTheme") || "dark";
+    const themeIcon = document.querySelector(".theme-icon");
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    themeIcon.textContent = savedTheme === "dark" ? "☾" : "☀";
+    document.querySelector(".theme-toggle").addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("portfolioTheme", nextTheme);
+      themeIcon.textContent = nextTheme === "dark" ? "☾" : "☀";
+    });
+  </script>
+</body>
+</html>

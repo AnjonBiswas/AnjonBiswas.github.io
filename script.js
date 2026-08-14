@@ -345,8 +345,21 @@ const heroContent = document.querySelector(".hero-content");
 const heroCopy = document.querySelector(".hero-copy");
 const heroVisual = document.querySelector(".hero-visual");
 const heroActions = document.querySelector(".hero-actions");
+const githubGraph = document.querySelector("#githubGraph");
+const githubMonths = document.querySelector("#githubMonths");
+const githubTotal = document.querySelector("#githubTotal");
+const githubTotalLabel = document.querySelector("#githubTotalLabel");
+const githubTooltip = document.querySelector("#githubTooltip");
+const githubYearDropdown = document.querySelector(".github-year-dropdown");
+const githubSelectedYear = document.querySelector("#githubSelectedYear");
+const githubYearButtons = document.querySelectorAll("[data-github-year]");
 const interactiveMotionCards = document.querySelectorAll(".skill-card, .project-card, .certificate-card, .achievement-card");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if (githubTooltip && githubTooltip.parentElement !== document.body) {
+  document.body.appendChild(githubTooltip);
+}
+
 const roles = [
   "CSE Undergraduate",
   "Web & Mobile App Developer",
@@ -396,6 +409,10 @@ let cvMobileRendered = false;
 let heroActionsPlaceholder = null;
 let screenshotSlides = [];
 let screenshotCurrentIndex = 0;
+let activeGithubYear = "last";
+let githubRefreshTimer = null;
+
+const GITHUB_REFRESH_INTERVAL_MS = 10 * 60 * 1000;
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
@@ -466,6 +483,7 @@ function typeRole() {
 typeRole();
 applyStaggeredReveal();
 initSkillBadgeLinks();
+initGithubActivity();
 
 function normalizeSkillLabel(label = "") {
   return label.trim().toLowerCase().replace(/\s+/g, " ");
@@ -496,6 +514,209 @@ function initSkillBadgeLinks() {
       event.preventDefault();
       openLink();
     });
+  });
+}
+
+function formatContributionDate(dateValue) {
+  const date = new Date(`${dateValue}T00:00:00`);
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }).format(date);
+}
+
+function formatContributionText(count, dateValue) {
+  const label = count === 1 ? "contribution" : "contributions";
+  return `${count} ${label} on ${formatContributionDate(dateValue)}`;
+}
+
+function buildContributionCells(contributions) {
+  if (!githubGraph) return;
+
+  githubGraph.innerHTML = "";
+  if (githubMonths) {
+    githubMonths.innerHTML = "";
+  }
+  const fragment = document.createDocumentFragment();
+  const firstDate = new Date(`${contributions[0].date}T00:00:00`);
+  const leadingEmptyDays = firstDate.getDay();
+  const monthFragment = document.createDocumentFragment();
+  const renderedMonths = new Set();
+
+  for (let index = 0; index < leadingEmptyDays; index += 1) {
+    const emptyCell = document.createElement("span");
+    emptyCell.className = "github-day is-empty";
+    emptyCell.setAttribute("aria-hidden", "true");
+    fragment.appendChild(emptyCell);
+  }
+
+  contributions.forEach(({ date, count, level }, index) => {
+    const dateRef = new Date(`${date}T00:00:00`);
+    const monthKey = `${dateRef.getFullYear()}-${dateRef.getMonth()}`;
+    const absoluteCellIndex = leadingEmptyDays + index;
+    const columnIndex = Math.floor(absoluteCellIndex / 7);
+
+    if (githubMonths && dateRef.getDate() <= 7 && !renderedMonths.has(monthKey)) {
+      renderedMonths.add(monthKey);
+      const monthLabel = document.createElement("span");
+      monthLabel.textContent = new Intl.DateTimeFormat("en", { month: "short" }).format(dateRef);
+      monthLabel.style.gridColumn = `${columnIndex + 1} / span 4`;
+      monthFragment.appendChild(monthLabel);
+    }
+
+    const cell = document.createElement("button");
+    const tooltipText = formatContributionText(count, date);
+    cell.type = "button";
+    cell.className = "github-day";
+    cell.dataset.date = date;
+    cell.dataset.count = String(count);
+    cell.dataset.level = String(level);
+    cell.dataset.tooltip = tooltipText;
+    cell.setAttribute("role", "gridcell");
+    cell.setAttribute("aria-label", tooltipText);
+    fragment.appendChild(cell);
+  });
+
+  githubGraph.appendChild(fragment);
+  githubMonths?.appendChild(monthFragment);
+}
+
+function positionGithubTooltip(target, event) {
+  if (!githubTooltip || !target) return;
+  const rect = target.getBoundingClientRect();
+  const viewportPadding = 12;
+  const tooltipWidth = githubTooltip.offsetWidth || 260;
+  const tooltipHeight = githubTooltip.offsetHeight || 36;
+  const anchorX = Number.isFinite(event?.clientX) ? event.clientX : rect.left + rect.width / 2;
+  const anchorY = Number.isFinite(event?.clientY) ? event.clientY : rect.top;
+  const x = Math.min(
+    window.innerWidth - viewportPadding - tooltipWidth / 2,
+    Math.max(viewportPadding + tooltipWidth / 2, anchorX)
+  );
+  const aboveTop = anchorY - tooltipHeight - 14;
+  const belowTop = anchorY + 18;
+  const placeBelow = aboveTop < viewportPadding;
+  const preferredTop = placeBelow ? belowTop : aboveTop;
+  const y = Math.min(window.innerHeight - viewportPadding - tooltipHeight, Math.max(viewportPadding, preferredTop));
+  githubTooltip.style.left = `${x}px`;
+  githubTooltip.style.top = `${y}px`;
+  githubTooltip.classList.toggle("is-below", placeBelow);
+}
+
+function showGithubTooltip(target, event) {
+  if (!githubTooltip || !target?.dataset.tooltip) return;
+  githubTooltip.textContent = target.dataset.tooltip;
+  githubTooltip.classList.add("is-visible");
+  githubTooltip.setAttribute("aria-hidden", "false");
+
+  positionGithubTooltip(target, event);
+}
+
+function hideGithubTooltip() {
+  if (!githubTooltip) return;
+  githubTooltip.classList.remove("is-visible");
+  githubTooltip.classList.remove("is-below");
+  githubTooltip.setAttribute("aria-hidden", "true");
+}
+
+function attachGithubTooltipEvents() {
+  if (!githubGraph) return;
+
+  githubGraph.querySelectorAll(".github-day:not(.is-empty)").forEach((cell) => {
+    cell.addEventListener("pointerenter", (event) => showGithubTooltip(cell, event));
+    cell.addEventListener("pointermove", (event) => showGithubTooltip(cell, event));
+    cell.addEventListener("pointerleave", hideGithubTooltip);
+    cell.addEventListener("focus", () => showGithubTooltip(cell));
+    cell.addEventListener("blur", hideGithubTooltip);
+  });
+
+  window.addEventListener("scroll", hideGithubTooltip, { passive: true });
+}
+
+function setGithubYearState(year) {
+  activeGithubYear = String(year);
+  const isLastYear = activeGithubYear === "last";
+  const selectedYearLabel = isLastYear ? "Last year" : activeGithubYear;
+  const totalLabel = isLastYear ? "contributions in the last year" : `contributions in ${activeGithubYear}`;
+  if (githubSelectedYear) {
+    githubSelectedYear.textContent = selectedYearLabel;
+  }
+  if (githubTotalLabel) {
+    githubTotalLabel.textContent = totalLabel;
+  }
+  githubYearButtons.forEach((button) => {
+    const isActive = button.dataset.githubYear === activeGithubYear;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
+async function loadGithubContributions(year = activeGithubYear) {
+  if (!githubGraph || !githubTotal) return;
+
+  setGithubYearState(year);
+  hideGithubTooltip();
+  githubTotal.textContent = "--";
+  githubGraph.innerHTML = '<span class="github-loading">Loading contributions...</span>';
+  if (githubMonths) {
+    githubMonths.innerHTML = "";
+  }
+
+  const cacheKey = Date.now();
+  const endpoint = `https://github-contributions-api.jogruber.de/v4/AnjonBiswas?y=${encodeURIComponent(activeGithubYear)}&refresh=${cacheKey}`;
+
+  try {
+    const response = await fetch(endpoint, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error("Unable to load GitHub contributions.");
+    }
+
+    const data = await response.json();
+    const contributions = Array.isArray(data.contributions) ? data.contributions : [];
+    if (!contributions.length) {
+      throw new Error("No contribution data returned.");
+    }
+
+    const yearTotal = activeGithubYear === "last" ? data.total?.lastYear : data.total?.[activeGithubYear];
+    const total = Number(yearTotal ?? contributions.reduce((sum, item) => sum + Number(item.count || 0), 0));
+    githubTotal.textContent = total.toLocaleString("en");
+    buildContributionCells(contributions);
+    attachGithubTooltipEvents();
+  } catch (_error) {
+    githubTotal.textContent = "--";
+    githubGraph.innerHTML = '<span class="github-error">GitHub contribution graph is unavailable right now.</span>';
+  }
+}
+
+function initGithubActivity() {
+  if (!githubGraph || !githubTotal) return;
+
+  githubYearButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.classList.contains("active")));
+    button.addEventListener("click", () => {
+      const selectedYear = button.dataset.githubYear;
+      if (!selectedYear || selectedYear === activeGithubYear) {
+        githubYearDropdown?.removeAttribute("open");
+        return;
+      }
+      githubYearDropdown?.removeAttribute("open");
+      loadGithubContributions(selectedYear);
+    });
+  });
+
+  loadGithubContributions(activeGithubYear);
+
+  if (!githubRefreshTimer) {
+    githubRefreshTimer = window.setInterval(() => {
+      if (document.hidden) return;
+      loadGithubContributions(activeGithubYear);
+    }, GITHUB_REFRESH_INTERVAL_MS);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) return;
+    loadGithubContributions(activeGithubYear);
   });
 }
 

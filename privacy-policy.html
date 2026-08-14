@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for the Anjon Biswas portfolio, covering contact form data, theme preference storage, GitHub activity, EmailJS, and external links.">
+  <meta name="author" content="Anjon Biswas">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b1226">
+  <link rel="canonical" href="https://itsanjon.me/privacy-policy.html">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="assets/Anjon%20Biswas.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="assets/Anjon%20Biswas.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Anjon Biswas Portfolio">
+  <meta property="og:title" content="Privacy Policy | Anjon Biswas">
+  <meta property="og:description" content="How this portfolio handles contact form submissions, local theme preference, GitHub activity, and third-party services.">
+  <meta property="og:url" content="https://itsanjon.me/privacy-policy.html">
+  <meta property="og:image" content="https://itsanjon.me/assets/Anjon%20Biswas.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Privacy Policy | Anjon Biswas">
+  <meta name="twitter:description" content="Privacy information for the Anjon Biswas portfolio website.">
+  <title>Privacy Policy | Anjon Biswas Portfolio</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="legal-page">
+  <header class="legal-header" id="top">
+    <a href="index.html#home" class="legal-brand" aria-label="Back to portfolio home">
+      <span class="legal-brand-mark">
+        <img src="assets/Anjon%20Biswas.jpg" alt="Anjon Biswas">
+      </span>
+      <span>
+        <strong>Anjon Biswas</strong>
+        <small>Portfolio Policy</small>
+      </span>
+    </a>
+    <div class="legal-header-actions">
+      <a href="index.html#contact" class="legal-nav-link">Contact</a>
+      <button class="theme-toggle legal-theme-toggle" type="button" aria-label="Toggle dark and light mode">
+        <span class="theme-icon" aria-hidden="true">?</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="legal-shell">
+    <section class="legal-hero">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>Privacy Policy for this portfolio.</h1>
+      <p>This policy explains how information is handled when you visit this portfolio or contact me through the website.</p>
+      <span>Last updated: August 14, 2026</span>
+    </section>
+
+    <section class="legal-card">
+      <h2>Information This Website May Collect</h2>
+      <p>This is a personal portfolio website. It does not require account registration and does not sell user data.</p>
+      <ul>
+        <li>Contact form details: your name, email address, subject, and message if you submit the form.</li>
+        <li>Email communication details when you contact me directly by email.</li>
+        <li>Theme preference stored in your browser so dark or light mode can remain consistent.</li>
+        <li>Public GitHub contribution data displayed from my GitHub profile.</li>
+      </ul>
+    </section>
+
+    <section class="legal-card">
+      <h2>How The Information Is Used</h2>
+      <ul>
+        <li>To reply to your message or collaboration request.</li>
+        <li>To maintain the portfolio experience, including the theme preference.</li>
+        <li>To display portfolio-related public information such as projects, resume, certificates, and GitHub activity.</li>
+      </ul>
+    </section>
+
+    <section class="legal-card">
+      <h2>Third-Party Services</h2>
+      <p>This website may use third-party services to provide normal portfolio features.</p>
+      <ul>
+        <li>EmailJS may process contact form submissions so messages can reach my email inbox.</li>
+        <li>GitHub or a GitHub contribution API may be used to show public contribution activity.</li>
+        <li>CDN providers may load fonts, icons, or scripts used by the interface.</li>
+        <li>External links may take you to GitHub, LinkedIn, Facebook, or other project resources.</li>
+      </ul>
+    </section>
+
+    <section class="legal-card">
+      <h2>Cookies And Local Storage</h2>
+      <p>This site does not intentionally use advertising cookies. It may use browser local storage only for simple preferences, such as remembering the selected theme.</p>
+    </section>
+
+    <section class="legal-card">
+      <h2>Data Sharing</h2>
+      <p>I do not sell or rent your personal information. Contact details are used only to communicate with you, unless disclosure is required by law or needed to protect the website from abuse.</p>
+    </section>
+
+    <section class="legal-card">
+      <h2>Your Choices</h2>
+      <ul>
+        <li>You can avoid the contact form and email me directly instead.</li>
+        <li>You can clear local storage in your browser to remove saved theme preference.</li>
+        <li>You may request deletion of messages you sent by contacting me.</li>
+      </ul>
+    </section>
+
+    <section class="legal-card legal-contact-card">
+      <h2>Contact</h2>
+      <p>For privacy questions, contact me at <a href="mailto:abanjon123@gmail.com">abanjon123@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="legal-footer">
+    <p>Copyright &copy; 2026 Anjon Biswas. All rights reserved.</p>
+    <div>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <a href="index.html#home">Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <script>
+    const savedTheme = localStorage.getItem("portfolioTheme") || "dark";
+    const themeIcon = document.querySelector(".theme-icon");
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    themeIcon.textContent = savedTheme === "dark" ? "☾" : "☀";
+    document.querySelector(".theme-toggle").addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("portfolioTheme", nextTheme);
+      themeIcon.textContent = nextTheme === "dark" ? "☾" : "☀";
+    });
+  </script>
+</body>
+</html>

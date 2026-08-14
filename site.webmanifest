@@ -1,0 +1,18 @@
+{
+  "name": "Anjon Biswas Portfolio",
+  "short_name": "Anjon Biswas",
+  "description": "Developer portfolio of Anjon Biswas featuring web, mobile, IoT, AI tools, certificates, GitHub activity, and contact information.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1226",
+  "theme_color": "#0b1226",
+  "icons": [
+    {
+      "src": "assets/Anjon%20Biswas.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
